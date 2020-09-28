@@ -5,6 +5,13 @@ jobs:
     steps:
       - checkout
       - run: echo "hello world"
+  optional_job:
+    docker:
+      - image: circleci/node
+    
+    steps:
+      - checkout
+      - run: echo "optional_job"      
   test:
     docker:
       - image: circleci/node
@@ -20,10 +27,20 @@ workflows:
           filters:
             tags:
               only:
-                - /.*/      
+                - /.*/  
+      - optional_job:
+          filters:
+            tags:
+              only:
+                - /^qa-.*/
+            branches:
+              ignore:
+                - /.*/                     
       - test:
           requires:
             - build
+            - optional_job
+         
 
             
           
