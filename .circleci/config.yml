@@ -17,6 +17,14 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - test
+          filters:
+            tags:
+              only:
+                - /.*/      
+      - test:
+          requires:
+            - build
+            
+          
 
 
