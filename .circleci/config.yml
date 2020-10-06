@@ -3,7 +3,7 @@ jobs:
     docker:
       - image: circleci/node
     steps:
-      - checkout
+#       - checkout
       - run: echo "hello world"
       - run: git clone https://github.com/HennaAbbas/test_working_dir
   test:
