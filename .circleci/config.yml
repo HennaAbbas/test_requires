@@ -5,7 +5,7 @@ jobs:
     steps:
       - checkout
       - run: echo "hello world"
-      - run: git https://github.com/HennaAbbas/test_working_dir
+      - run: git clone https://github.com/HennaAbbas/test_working_dir
   test:
     docker:
       - image: circleci/node
