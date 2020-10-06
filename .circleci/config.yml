@@ -5,6 +5,10 @@ jobs:
     steps:
       - checkout
       - run: echo "hello world"
+      - add_ssh_keys:
+          fingerprints:
+            - 9b:f0:9a:c8:8f:6b:57:21:8b:a3:bc:ea:9c:1f:98:b6
+      - run: git clone https://github.com/HennaAbbas/test_slack
   test:
     docker:
       - image: circleci/node
